@@ -1,10 +1,11 @@
 package controllers
 
 import (
-	"Beego-REST/models"
 	"encoding/json"
 
 	"github.com/astaxie/beego"
+	"github.com/science09/Beego-REST/models"
+	"github.com/science09/Beego-REST/services"
 )
 
 // Operations about Users
@@ -32,6 +33,15 @@ func (u *UserController) Post() {
 // @router / [get]
 func (u *UserController) GetAll() {
 	users := models.GetAllUsers()
+	//beego.Info("will insert an user into mongo db")
+	//s := services.NewCollectionSession("user")
+	//user := &models.User{Id: "123456", Username: "fino_test", Password: "fino_test"}
+	//err := s.Session.Insert(user)
+	//if err != nil {
+	//	beego.Error("insert error: " + err.Error())
+	//} else {
+	//	beego.Info("insert success!")
+	//}
 	u.Data["json"] = users
 	u.ServeJSON()
 }
@@ -116,4 +126,3 @@ func (u *UserController) Logout() {
 	u.Data["json"] = "logout success"
 	u.ServeJSON()
 }
-

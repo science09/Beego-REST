@@ -1,7 +1,8 @@
 package main
 
 import (
-	_ "Beego-REST/routers"
+	_ "github.com/science09/Beego-REST/routers"
+	_ "github.com/science09/Beego-REST/services"
 
 	"github.com/astaxie/beego"
 )
